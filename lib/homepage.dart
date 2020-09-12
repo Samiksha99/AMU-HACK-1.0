@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:tgd_covid_tracker/datasorce.dart';
-import 'package:tgd_covid_tracker/pages/countyPage.dart';
-import 'package:tgd_covid_tracker/panels/infoPanel.dart';
-import 'package:tgd_covid_tracker/panels/mosteffectedcountries.dart';
-import 'package:tgd_covid_tracker/panels/worldwidepanel.dart';
+import 'package:Covid_tracker/datasorce.dart';
+import 'package:Covid_tracker/pages/countyPage.dart';
+import 'package:Covid_tracker/panels/infoPanel.dart';
+import 'package:Covid_tracker/panels/mosteffectedcountries.dart';
+import 'package:Covid_tracker/panels/worldwidepanel.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
