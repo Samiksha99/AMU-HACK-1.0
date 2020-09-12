@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:tgd_covid_tracker/pages/search.dart';
+import 'package:Covid_tracker/pages/search.dart';
 
 class CountryPage extends StatefulWidget {
   @override

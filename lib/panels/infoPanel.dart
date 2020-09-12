@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tgd_covid_tracker/datasorce.dart';
-import 'package:tgd_covid_tracker/pages/faqs.dart';
+import 'package:Covid_tracker/datasorce.dart';
+import 'package:Covid_tracker/pages/faqs.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoPanel extends StatelessWidget {

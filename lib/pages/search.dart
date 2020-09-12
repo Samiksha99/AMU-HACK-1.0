@@ -1,6 +1,6 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:tgd_covid_tracker/datasorce.dart';
+import 'package:Covid_tracker/datasorce.dart';
 
 
 class Search extends SearchDelegate{
