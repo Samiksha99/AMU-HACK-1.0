@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:Covid_tracker/datasorce.dart';
@@ -7,6 +6,7 @@ import 'package:Covid_tracker/pages/countyPage.dart';
 import 'package:Covid_tracker/panels/infoPanel.dart';
 import 'package:Covid_tracker/panels/mosteffectedcountries.dart';
 import 'package:Covid_tracker/panels/worldwidepanel.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -32,8 +32,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-
-  Future fetchData() async{
+  Future fetchData() async {
     fetchWorldWideData();
     fetchCountryData();
     print('fetchData called');
@@ -50,11 +49,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          IconButton(icon: Icon(Theme.of(context).brightness==Brightness.light?Icons.lightbulb_outline:Icons.highlight), onPressed: (){
-            DynamicTheme.of(context).setBrightness(Theme.of(context).brightness==Brightness.light?Brightness.dark:Brightness.light);
-          })
+          IconButton(
+              icon: Icon(Theme.of(context).brightness == Brightness.light
+                  ? Icons.lightbulb_outline
+                  : Icons.highlight),
+              onPressed: () {
+                DynamicTheme.of(context).setBrightness(
+                    Theme.of(context).brightness == Brightness.light
+                        ? Brightness.dark
+                        : Brightness.light);
+              })
         ],
-
         centerTitle: false,
         title: Text(
           'COVID-19 TRACKER',
@@ -80,7 +85,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -90,8 +96,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => CountryPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CountryPage()));
                     },
                     child: Container(
                         decoration: BoxDecoration(
@@ -106,6 +114,23 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.bold),
                         )),
                   ),
+                  GestureDetector(
+                    onTap: () {
+                      launch('https://covidvisualizer.com/');
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.pink[300],
+                            borderRadius: BorderRadius.circular(15)),
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          '3-D Visualizer',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ),
                 ],
               ),
             ),
@@ -114,7 +139,6 @@ class _HomePageState extends State<HomePage> {
                 : WorldwidePanel(
                     worldData: worldData,
                   ),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
